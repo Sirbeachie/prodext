@@ -3,6 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const { MongoClient } = require('mongodb');
+
+const uri = "mongodb://localhost:27017";
+
+const client = new MongoClient(uri);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -38,6 +43,16 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+async function main() {
+  try {
+    const database = client.db('Prodext');
+
+
+  } finally {
+    await client.close();
+  }
+}
+main().catch(console.dir);
 module.exports = app;
 
 const server = app.listen(process.env.PORT || 8000, () => {
