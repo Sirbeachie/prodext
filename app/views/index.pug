@@ -1,0 +1,129 @@
+extends layout
+
+block head
+  title= title
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='icon' type='image/x-icon' href='/favicon.png')
+  link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Overpass')
+  script(src='/bootstrap/js/bootstrap.bundle.min.js')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js')
+  
+  script(src='/js/prodext.js')
+  link(rel='stylesheet', href='/stylesheets/prodext.css')
+
+block content
+  .wrapper
+  #nav-header.navbar-header.full
+    .topbar.container-fluid
+      .d-flex
+        button#navbar-toggle.navbar-toggler(type='button')
+          span.navbar-toggler-icon
+      .d-flex.p-2
+        form.d-flex.d-none.d-sm-none.d-md-block(action='/#')
+          .input-group
+            input.form-control(type='text' placeholder='Search')
+            button.btn.btn-default.btn-sm.border(type='submit')
+              span.fa.fa-search.text-dark
+              span.text-dark  Search
+  .sidebar
+    .sidebar-menu
+      .brand-container
+        a.prodext-logo(href='/')
+          | PRODEXT
+      span.menu-category Navigation
+      ul.sidebar-menu-items
+        li
+          a.dropdown-toggle(href='#')
+            span.fa-solid.fa-house.fa-fw.me-2
+            | Dashboard
+          .sub-menu-container
+            ul.sidebar-menu-dropdown
+              li.active
+                a(href='#') Home
+              li
+                a(href='#') Home
+      span.menu-category Modules
+      ul.sidebar-menu-items
+        li
+          a.dropdown-toggle(href='#')
+            span.fa-solid.fa-house.fa-fw.me-2
+            | Dashboard
+          .sub-menu-container
+            ul.sidebar-menu-dropdown
+              li.active
+                a(href='#') Home
+        li.active.dropdown
+          a.dropdown-toggle(href='#')
+            span.fa-solid.fa-calendar.fa-fw.me-2
+            | Planning
+          .sub-menu-container
+            ul.sidebar-menu-dropdown
+              li.active
+                a(href='#') Quarterly
+        li.active.dropdown
+          a(href='#')
+            span.fa-solid.fa-house.me-2
+            | Dashboard
+        li.active.dropdown
+          a(href='#')
+            span.fa-solid.fa-house.me-2
+            | Dashboard
+        li.active.dropdown
+          a(href='#')
+            span.fa-solid.fa-house.me-2
+            | Dashboard
+  .content-wrapper
+    .container-fluid
+      .row.p-4
+        .col.col-md-10.pt-2
+          h2 Dashboard
+        .col.col-align-self-end.pt-2
+          button.btn.btn-default.btn-md.bg-dark.text-white.border(style='float:  right;' type='submit')
+            span.fa.fa-plus
+            |  Add Module
+        .col.col-sm-auto.col-md-8.pt-2
+          .card.card-default
+            .card-header.border-bottom-0.py-5
+              h3 Habits
+            .card-body
+              h5.card-title Your Habit Schedule
+              p.card-text Clean room every day.
+              h5.card-title Your Habit Schedule
+              p.card-text Clean room every day.
+              h5.card-title Your Habit Schedule
+              p.card-text Clean room every day.
+              h5.card-title Your Habit Schedule
+              p.card-text Clean room every day.
+        .col.col-md-4.pt-2
+          .card.card-default
+            .card-header.py-5
+              h3 Habits
+            .card-body
+              h5.card-title Your Habit Schedule
+              p.card-text Clean room every day.
+      .row.p-4
+        .col.col-md-4.pt-2
+          .card.card-default
+            .card-header.py-5
+              h3 Habits
+            .card-body
+              h5.card-title Your Habit Schedule
+              p.card-text Clean room every day.
+        .col.col-md-4.pt-2
+          .card.card-default
+            .card-header.py-5
+              h3 Habits
+            .card-body
+              h5.card-title Your Habit Schedule
+              p.card-text Clean room every day.
+        .col.col-md-4.pt-2
+          .card.card-default
+            .card-header.py-5
+              h3 Habits
+            .card-body
+              h5.card-title Your Habit Schedule
+              p.card-text Clean room every day.
+
