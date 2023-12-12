@@ -115,6 +115,7 @@ html {
 .sidebar-menu .menu-category {
 	position: relative;
   padding-top: 5px;
+  padding-left: 2px;
   color: #b1b3b6;
   font-family: overpass;
 }
