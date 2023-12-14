@@ -46,7 +46,7 @@ app.use(function(err, req, res, next) {
 async function main() {
   try {
     const database = client.db('Prodext');
-
+    const website = database.collection('website');
 
   } finally {
     await client.close();
