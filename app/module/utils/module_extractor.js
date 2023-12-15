@@ -34,6 +34,25 @@ function extractContents(zipFile) {
 	return [success, errors];
 }
 
+function getEntryChildren(entry, entries) {
+
+	if (entry && entry.isDirectory) {
+		const list = [];
+		const name = entry.entryName;
+		const len = name.length;
+
+		entries.forEach(zipEntry => {
+			if (zipEntry.entryName.substr(0, len) === name) {
+				list.push(zipEntry);
+			}
+		});
+
+		return list;
+	}
+
+	return [];
+}
+
 /* Every module archive needs a config file: config.json */
 function validateContents(zip) {
 	try {

@@ -3,16 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose');
 
-const uri = "mongodb://localhost:27017";
+mongoose.set('strictQuery', false);
 
-const client = new MongoClient(uri);
+const uri = "mongodb://localhost:27017/Prodext";
+mongoose.connect(uri);
+const Module = require('./models/module');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var moduleRouter = require('./routes/module');
 
 var app = express();
+
+const sidebarLinks = require('./middleware/sidebar_middleware.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,8 +28,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', sidebarLinks);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -43,16 +47,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-async function main() {
-  try {
-    const database = client.db('Prodext');
-    const website = database.collection('website');
-
-  } finally {
-    await client.close();
-  }
+/*async function main() {
+  await 
 }
-main().catch(console.dir);
+main().catch(console.dir);*/
 module.exports = app;
 
 const server = app.listen(process.env.PORT || 8000, () => {
