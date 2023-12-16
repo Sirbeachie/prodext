@@ -4,7 +4,7 @@ const Module = mongoose.model("Module");
 const createModule = async (req, res) => {
 	const { moduleName, authorName, menuIcon } = req.body;
 
-	const moduleExists = await Module.exists({moduleName: moduleName});
+	const exists = await Module.exists({moduleName: moduleName});
 
 	if (exists) {
 		console.log('Module with that name already exists, please delete it and try again.');
