@@ -12,7 +12,11 @@ const {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Dashboard' });
+  const allModuleNames = res.locals.moduleNames;
+  const names = [];
+  allModuleNames.forEach(module => names.push(module.moduleName));
+
+  res.render('index', { title: 'Dashboard', 'moduleNames': names });
 });
 
 router.post('/module', createModule);

@@ -47,34 +47,13 @@ block content
                 a(href='#') Home
       span.menu-category Modules
       ul.sidebar-menu-items
-        li
-          a.dropdown-toggle(href='#')
-            span.fa-solid.fa-house.fa-fw.me-2
-            | Dashboard
-          .sub-menu-container
-            ul.sidebar-menu-dropdown
-              li.active
-                a(href='#') Home
-        li.active.dropdown
-          a.dropdown-toggle(href='#')
-            span.fa-solid.fa-calendar.fa-fw.me-2
-            | Planning
-          .sub-menu-container
-            ul.sidebar-menu-dropdown
-              li.active
-                a(href='#') Quarterly
-        li.active.dropdown
-          a(href='#')
-            span.fa-solid.fa-house.me-2
-            | Dashboard
-        li.active.dropdown
-          a(href='#')
-            span.fa-solid.fa-house.me-2
-            | Dashboard
-        li.active.dropdown
-          a(href='#')
-            span.fa-solid.fa-house.me-2
-            | Dashboard
+        each name in moduleNames
+          if (name)
+            li.active.dropdown
+              a(href='/module/' + name)
+                span.fa-solid.fa-house.me-2
+                |
+                = name
   .content-wrapper
     .container-fluid
       .row.p-4
