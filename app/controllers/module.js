@@ -15,6 +15,8 @@ const createModule = async (req, res) => {
 			.then(() => console.log('Module was created!'))
 			.catch((err) => console.log(err));
 	}
+
+	return res.send('Module added successfully!');
 };
 
 const getModules = async (req, res) => {
