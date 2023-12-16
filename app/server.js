@@ -11,8 +11,7 @@ const uri = "mongodb://localhost:27017/Prodext";
 mongoose.connect(uri);
 const Module = require('./models/module');
 
-var indexRouter = require('./routes/index');
-var moduleRouter = require('./routes/module');
+var router = require('./routes/routes');
 
 var app = express();
 
@@ -29,28 +28,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', sidebarLinks);
-app.use('/', indexRouter);
+app.use('/', router);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-/*async function main() {
-  await 
-}
-main().catch(console.dir);*/
 module.exports = app;
 
 const server = app.listen(process.env.PORT || 8000, () => {

@@ -4,7 +4,7 @@ const Module = mongoose.model('Module');
 
 const sidebarLinks = (req, res, next) => {
 	const allModuleNames = Module.find({}, 'moduleName').exec();
-	res.additionalData = allModuleNames;
+	res.locals.moduleNames = allModuleNames;
 	next();
 };
 
